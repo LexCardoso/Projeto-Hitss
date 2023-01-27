@@ -1,0 +1,29 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+
+{% block conteudo %}
+<div class="container">
+    
+    <h3>{{ titulo }}</h3>
+
+    <p>{{descricao}}</p>
+
+    <form action="" method="POST">
+
+        <p>Deseja excluir o registro: <b>{{ object }}</b></p>
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        
+        <button class="btn btn-danger" class="submit">
+            {{ botao }}
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock  %}

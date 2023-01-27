@@ -1,0 +1,20 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Pagina Inicial - linkada automatica</title>
+{% endblock  %}
+
+{% block conteudo %}
+<h1>Pagina inicial </h1>
+
+teste de autenticacao de user {{ request.user }}
+
+Aqui vai ficar a tabela de consulta Fornecedores
+<!--<img src="{% static 'img/Logo_colorida_sf.png' %}" width="200" alt="">-->
+
+
+
+{% endblock  %}
+

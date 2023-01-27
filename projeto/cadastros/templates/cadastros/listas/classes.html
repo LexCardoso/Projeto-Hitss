@@ -1,0 +1,43 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+
+{% block conteudo %}
+<h3> Lista de Projetos registrados</h3>
+
+<a href="{% url 'cadastrar-classe' %}" class="btn btn-info">Adiconar Projeto</a>
+
+<hr>
+<div class="table-responsive">
+
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>nome</th>
+            <th>gestor</th>
+            <th>descricao</th>
+        </tr>
+
+        {% for classe in object_list %}
+        <tr>
+            <td>{{ classe.pk }}</td>
+            <td>{{ classe.nome }}</td>
+            <td>{{ classe.gestor }}</td>
+            <td>{{ classe.descricao }}</td>
+            <td>
+                <a href="{% url 'editar-classe' classe.pk %}" class="btn btn-warning btn-sm" title="Editar">Editar</a>
+                <a href="{% url 'excluir-classe' classe.pk %}" class="btn btn-danger btn-sm" title="Excluir">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum campo registrado</td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
+
+{% endblock  %}

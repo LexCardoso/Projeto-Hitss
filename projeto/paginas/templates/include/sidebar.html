@@ -1,0 +1,61 @@
+{% load static %}
+<h2>Hitss- ICPO</h2>
+<img src="{% static 'img/Logo ICPO.png' %}" width="35%" class="img-center-auto" alt="">
+
+<div>
+      {% if request.user.is_authenticated %}
+      <!--<a href="{% url 'inicio' %}">
+        <div class="menu-link inside-bt-fit"> <i class="fa-solid fa-house icon"></i>
+          Home         
+        </div>
+      </a>
+
+      <a href="{% url 'sobre' %}">
+        <div class="menu-link inside-bt-fit"> <i class="fa-solid fa-user"></i>
+          Sobre
+        </div>
+      </a>-->
+          
+      <a href="{% url 'listar-campos' %}">
+        <div class="menu-link inside-bt-fit"> <i class="fa-solid fa-clipboard"></i>
+          Fornecedores
+        </div>
+      </a>
+      
+      <a href="{% url 'listar-atividades' %}">
+        <div class="menu-link inside-bt-fit"> <i class="fa-regular fa-clipboard"></i>
+          Recursos
+        </div>
+      </a>
+
+      <a href="{% url 'listar-classes' %}"> 
+        <div class="menu-link inside-bt-fit"> <i class="fa-regular fa-clipboard"></i>
+          Projeto          
+        </div>
+      </a>
+
+      <a href="{% url 'listar-status' %}"> 
+        <div class="menu-link inside-bt-fit"> <i class="fa-regular fa-clipboard"></i>
+          Vagas
+        </div>
+      </a>
+
+      <a href="{% url 'listar-compra' %}"> 
+        <div class="menu-link inside-bt-fit"> <i class="fa-regular fa-clipboard"></i>
+          Compras de Serviços
+        </div>
+      </a>
+
+      <a href="{% url 'logout' %}"> 
+        <div class="menu-link2 inside-bt-fit"> <i class="fa-solid fa-power-off"></i>
+          Logout
+        </div>
+      </a>
+      {% else %}
+      <a class="" href="{% url 'login' %}">
+        <div class="menu-link inside-bt-fit" >
+          Login
+        </div>
+      </a>
+      {% endif %}  
+</div>

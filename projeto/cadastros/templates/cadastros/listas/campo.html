@@ -1,0 +1,48 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+
+
+{% block conteudo %}
+<h3> Lista de Fornecedores registrados</h3>
+
+<a href="{% url 'cadastrar-campo' %}" class="btn btn-info">Adiconar Fornecedor</a>
+
+<hr>
+<div class="table-responsive">
+
+    <table class="table table-striped">
+        <tr>
+            <th>ID_SAP</th>
+            <th>nome</th>
+            <th>Situação</th>
+            <th>ID_serviço</th>
+            <th>Centro</th>
+        </tr>
+
+        {% for campo in object_list %}
+        <tr>
+            <td>{{ campo.id_sap }}</td>
+            <td>{{ campo.nome }}</td>
+            <td>{{ campo.situacao }}</td>
+            <td>{{ campo.id_servico }}</td>
+            <td>{{ campo.centro }}</td>
+            <td>
+                <a href="{% url 'editar-campo' campo.pk %}" class="btn btn-warning btn-sm" title="Editar">Editar</a>
+                <a href="{% url 'excluir-campo' campo.pk %}" class="btn btn-danger btn-sm" title="Excluir">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum campo registrado</td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
+
+
+
+{% endblock  %}

@@ -1,0 +1,43 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+
+{% block conteudo %}
+<h3> Lista de Vagas registradas</h3>
+
+<a href="{% url 'cadastrar-status' %}" class="btn btn-info">Adiconar Vaga</a>
+
+<hr>
+<div class="table-responsive">
+
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>descricao</th>
+
+        </tr>
+
+        {% for status in object_list %}
+        <tr>
+            <td>{{ status.pk }}</td>
+            <td>{{ status.nome }}</td>
+            <td>{{ status.descricao }}</td>
+
+            <td>
+                <a href="{% url 'editar-status' status.pk %}" class="btn btn-warning btn-sm" title="Editar">Editar</a>
+                <a href="{% url 'excluir-status' status.pk %}" class="btn btn-danger btn-sm" title="Excluir">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum campo registrado</td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
+
+{% endblock  %}

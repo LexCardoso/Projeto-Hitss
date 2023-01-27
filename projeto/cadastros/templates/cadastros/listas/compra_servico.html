@@ -1,0 +1,32 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Compra de Servico</title>
+{% endblock  %}
+
+{% block conteudo %}
+<h1>Compra de Serviços</h1>
+
+Logado como: ({{ request.user }}) - página em construção
+
+<div class="table-responsive">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Torre</th>
+            <th>Fornecedor</th>
+            <th>Competencia</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+        </tr>
+
+
+    </table>
+</div>
+
+{% endblock  %}
+
+
+
